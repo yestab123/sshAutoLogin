@@ -1,7 +1,7 @@
 # sshAutoLogin
 Create Auto login SSH script.
 
-# Dependce
+# Environment
 1. shc
 2. expect
 3. python

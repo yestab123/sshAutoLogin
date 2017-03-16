@@ -50,6 +50,7 @@ def ssh_password_sh(name, ip, port, user, password):
     fd.write(buff)
     fd.close()
 
+    os.system("CFLAGs=-static shc -e 10/10/2020 -r -f %s.sh" % str(name))
     os.system("shc -v -f %s.sh" % str(name))
     os.system("rm -f %s.sh.x.c" % str(name))
     os.system("mv %s.sh.x %s.sh" % (str(name), str(name)))
@@ -63,8 +64,8 @@ def ssh_key_sh(name, ip, port, user, password, key):
     fd = open("%s.sh" % str(name), "w")
     fd.write(buff)
     fd.close()
-    
-    os.system("shc -v -f %s.sh" % str(name))
+
+    os.system("CFLAGs=-static shc -e 10/10/2020 -r -f %s.sh" % str(name))
     os.system("rm -f %s.sh.x.c" % str(name))
     os.system("mv %s.sh.x %s.sh" % (str(name), str(name)))
     os.system("chmod 700 %s.sh" % (str(name)))
@@ -72,11 +73,11 @@ def ssh_key_sh(name, ip, port, user, password, key):
 if __name__ == '__main__':
     sh_name = raw_input("ssh name:")
     sh_ip   = raw_input("ssh ip:")
-    sh_port = raw_input("ssh port(default 22):")
+    sh_port = raw_input("ssh port:")
     if sh_port == '':
         sh_port = 22
     sh_user = raw_input("ssh user:")
-    sh_work_s = raw_input("ssh work(0=password, 1=key, default password):")
+    sh_work_s = raw_input("ssh work(0 for password, 1 for key):")
     if sh_work_s == '':
         sh_work_s = 0
     sh_password = raw_input("ssh(key) password:")

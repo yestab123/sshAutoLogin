@@ -48,7 +48,6 @@ def ssh_key(name, ip, port, user, password, key):
 
 def shc_shell_script(name):
     os.system("CFLAGs=-static shc -e 10/10/2020 -r -f %s.sh" % str(name))
-    os.system("shc -v -f %s.sh" % str(name))
     os.system("rm -f %s.sh.x.c" % str(name))
     os.system("mv %s.sh.x %s.sh" % (str(name), str(name)))
     os.system("chmod 700 %s.sh" % (str(name)))
